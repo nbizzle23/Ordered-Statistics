@@ -4,7 +4,7 @@ This [project](https://github.com/nbizzle23/Ordered-Statistics/blob/master/Order
 
 ### Supplementary R Code
 
-There is no dependencies need to run the [R code]() to re-create the graphics used in this document. 
+There is no dependencies need to run the [R code](https://github.com/nbizzle23/Ordered-Statistics/blob/master/RCode.R) to re-create the graphics used in this document. 
 
 
 ## Built With
