@@ -2,6 +2,11 @@
 
 This [project](https://github.com/nbizzle23/Ordered-Statistics/blob/master/OrderedStatistics.pdf) discuss the topic of order statistics with the use of unbiased estimates of mean and standard deviation it can be used in various aspects of life such as sport and finance. Both theoretical and applicable perspectives will be examined. [Presentation](https://rpubs.com/nburke2/636876)
 
+### Supplementary R Code
+
+There is no dependencies need to run the [R code]() to re-create the graphics used in this document. 
+
+
 ## Built With
 
 * [RStudio](https://rstudio.com/products/rstudio/) - The Open source license
