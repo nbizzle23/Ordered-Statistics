@@ -1,0 +1,321 @@
+---
+title: "Order Statistics with Applications to Basketball Data"
+author: "Nicholas Burke"
+date: "26 March 2019"
+output:
+  revealjs::revealjs_presentation: null
+  
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+##<span style="color:blue"> Abstract</span> {data-background="yellow"}
+This Graduate project will discuss the topic of order statistics. Order statistics can provide efficient linear unbiased estimates of parameters, such as mean and standard deviation. Thus it can be used various aspects of life such as health care, finance and sports. This project will include a historical review of order statistics, some definitions as well as some theoretical properties to help further elaborate on this topic. This project will also included an application with respect to basketball data, and a simulation. 
+
+
+## <span style="color:blue"> Outline</span> {data-background="yellow"}
+- What are Order Statistics
+- Density Functions
+- Probability Distributions
+- An Example in Basketball Analytics
+
+## <span style="color:blue"> How is it used in Basketball?</span> {data-background="yellow"}
+
+- Coaching 
+- Rotations, play calling
+
+- Player Ranking
+- Leader boards in points, rebounds and assists
+
+- Decision Making
+- Allocation of funds on a roster
+
+## <span style="color:blue"> What are Order Statistics?</span> {data-background="yellow"}
+Consider a set $X_1,X_2,...,X_n$ of independent and identically distributed (continuous) random variables 
+
+Let $X_{(r)}$ denote the $r^{th}$ smallest of $X_1,X_2,...,X_n$ . The random variables $X_{(1)},X_{(2)},...,X_{(n)}$ are called the order statistics and $X_{(r)}$ the $r^{th}$ order statistic, $r=1,2,...,n$
+
+
+For the order statistics we thus have that 
+$\\$
+
+<center>
+<span style="color:red"> 
+$X_{(1)}\leq X_{(2)}\leq\cdots\leq X_{(n)}$
+</span>
+</center>
+$\\$
+
+## <span style="color:blue"> Example </span> {data-background="yellow"}
+Let us consider the set of numbers 
+
+<center>
+<span style="color:red">
+$6, 19, 1, 7, 15.$
+</span>
+</center>
+$\\$
+
+In general, they are represented by $x_i$:
+
+
+<center>
+<span style="color:red">
+$x_1=6, x_2=19,x_3=1, x_4=7, x_5=15$.
+</span>
+</center>
+$\\$
+
+Then, the order statistics of this data would be:
+
+<center>
+<span style="color:red"> 
+$x_{(1)}=1, x_{(2)}=6,x_{(3)}=7, x_{(4)}=15, x_{(5)}=19$.
+</span>
+</center>
+
+## <span style="color:blue">Order Statistics</span> {data-background="yellow"}
+
+It is of natural interest to find the joint probability distribution of these ordered random variables, and we will begin by finding the marginal probability distributions of the extremes, that is
+
+- $X_{(1)}$ denoted as the first-order statistic
+
+
+<center>
+<span style="color:red"> 
+$X_{(1)}=min(X_1,...,X_n)$
+</span>
+</center>
+$\\$
+
+- $X_{(n)}$ is the $n^{th}$ order statistic
+$\\$
+
+<center>
+<span style="color:red"> 
+$X_{(n)}=max(X_1,...,X_n)$
+</span>
+</center>
+
+
+##<span style="color:blue"> The probability distribution of $X_{(1)}$ </span> {data-background="yellow"}
+From the common distribution function $F(x)$ it follows that
+
+<span style="color:red"> 
+$F_{(1)}(x)$</span>$=Pr\{X_{(1)} \leq x\}$
+
+$=Pr[min(X_1,X_2,...,X_n)\leq x]$
+
+$=1-Pr[min(X_1,X_2,...,X_n)> x]]$
+
+
+$=1-(Pr(X_1> x,X_2> x,...,X_n> x))$
+
+$=1-(Pr(X_1> x)Pr(X_2> x)\cdots Pr(X_n> x))$
+
+<span style="color:red"> 
+$=1-(1-F(x))^n$
+</span>
+
+
+
+
+##<span style="color:blue"> The probability distribution of $X_{(n)}$ </span> {data-background="yellow"}
+From the common distribution function $F(x)$ it follows that
+
+<span style="color:red"> 
+$F_{(n)}(x)$</span>$=Pr\{X_{(n)} \leq x\}$
+
+$=Pr(max(X_1,X_2,...,X_n)\leq x)$
+
+$=Pr(X_1\leq x,X_2\leq x,...,X_n\leq x)$
+
+$=Pr(X_1\leq x)Pr(X_2\leq x)\cdots Pr(X_n\leq x)$
+
+$=[Pr(X_1\leq x)]^n$
+
+<span style="color:red"> 
+$=F^n(x)$
+</span>
+
+
+##<span style="color:blue"> The probability distribution of $X_{(r)}$ </span> {data-background="yellow"}
+We now generalize and look at the marginal probability distribution of $X_{(r)}$
+;i.e the $r^{th}$ order statistic, $r=1,2,..n$
+
+Consider a set $X_{(1)},...,X_{(n)}$ of independent and identically distributed (continuous) random variables with density function $f(x)$ and distribution function $F(x)$. For $r=1,2,..,n$ the density of $X_{(r)}$ is given by
+$\\$
+
+<center>
+<span style="color:red">
+$f_{(r)}(x)=\frac{n!}{(r-1)!(n-r)!}(F^{r-1}(x))(1-F(x))^{n-r}f(x)$
+</span>
+</center>
+Thus,
+<center>
+<span style="color:red">
+$F_{(r)}(x)=Pr(X_{(r)}\leq x)=\int_{-\infty}^{\infty}f_{(r)}(s)ds$
+</span>
+</center>
+
+
+##<span style="color:blue">The joint distribution of $X_{(1)}$ and $X_{(n)}$ {data-background="yellow"}
+Consider a set $X_1,X_2,...,X_n$ of independent and identically distributed (continuous) random variables with density function $f(x)$ and distribution function $F(x)$. The joint density of the extremes is given by
+
+<center>
+<span style="color:red">
+$f_{1,n}(x,y)=n(n-1)(F(y)-F(x))^{n-2}f(x)f(y), x\leq y$ 
+</span>
+</center>
+
+
+
+##<span style="color:blue"> The probability distribution of the Range</span> {data-background="yellow"}
+- The sample range is the difference between the maximum and minimum values; i.e
+$\\$
+
+
+
+<center>
+<span style="color:red"> 
+$R_n=Range(X_1,...,X_n)=X_{(n)}-X_{(1)}$
+</span>
+</center>
+$\\$
+
+The density of $R_n$ is then given by
+
+<center>
+<span style="color:red"> 
+$f_{R_n}(r)=n(n-1)\int_{-\infty}^{\infty} (F(r+u)-F(u))^{n-2}f(u)f(r+u)du$
+</span>
+</center>
+
+ for <span style="color:red">$r\geq 0$</span>
+
+## <span style="color:blue">The joint distribution of the order statistics</span> {data-background="yellow"}
+Consider a set $X_1,X_3,...,X_n$ of independent and identically distributed (continuous) random variables with density function f(x) and distribution function $F(x)$. The joint density of the order statistic is given by
+
+<center>
+<span style="color:red">
+$f_{X_{(1)},...,X_{(n)}}(y_1,...,y_n) =n!f(y_1)f(y_2)\cdots f(y_n)$
+</span>
+</center>
+
+for<span style="color:red"> $-\infty<y_1\leq y_2<\cdots\leq y_n<\infty$</span>
+
+
+
+
+## <span style="color:blue">The joint distribution of $X_{(r)}$ and $X_{(s)}$ </span> {data-background="yellow"}
+Based on the previous assumptions, the joint distribution of $X_{(r)}$ and $X_{(s)}$ $(1\leq r < s \leq n)$ is given by
+
+<span style="color:red">
+$f_{rs}(x,y)=C_{rs}F^{r-1}(x)f(x)[F(y)-F(x)]^{s-r-1}f(y)[1-F(y)]^{n-s}$
+</span>
+
+$\\$
+<small>where</small>
+<center>
+<span style="color:red"> 
+ $C_{rs}=\frac{n!}{(r-1)!(s-r-1)!(n-s)!}$
+</span>
+</center>
+
+## <span style="color:blue"> Formula for $E(X_{(r)})$</span> {data-background="yellow"}
+- For the continuous case, we have 
+$\\$
+
+<center>
+<span style="color:red"> 
+$E_r=E(X_{(r)})\int_{-\infty}^{\infty}xf_r(x)dx$
+</span>
+</center>
+$\\$
+
+- An expanded formula for $E_r$
+
+<center>
+<span style="color:red"> 
+$E_r=\frac{n!}{(r-1)!(n-r)!}\int_{-\infty}^{\infty}xF^{r-1}(x)f(x)[1-F(x)]^{n-r}dx$
+</span>
+</center>
+
+
+## <span style="color:blue"> Example: Free Throws</span> {data-background="yellow"}
+In a basketball league they have tracked free throw attempts of each player over their career. A player can shoot thousands free throws over this time. Each player is independent of one another and are modeled by a continuous uniform distribution on (0,10)
+
+5 random players are selected randomly.
+
+What is the probability that the minimum number of free throw attempts is between 2000-6000?
+
+What is the expected value for the maximum amount of free throw attempts? 
+
+
+
+##<span style="color:blue">  Example: Free Throws</span> {data-background="yellow"}
+Distribution of $X_1$
+
+The cdf is $F(x)=\frac{x}{10}$ where $0<x<10$
+
+<span style="color:red"> 
+$F_{X_{(1)}}(x)$</span>$=Pr(X_{(1)} \leq x)$
+
+$=1-(1-F(x))^5$
+
+<span style="color:red"> 
+$=1-(1-\frac{x}{10})^5$, $0<x<10$ 
+</span>
+
+
+
+##<span style="color:blue">  Example: Free Throws</span> {data-background="yellow"}
+$P(X_{(1)}$ is between 2 and 6$)=P(2<X_{(1)}<6)$
+
+$=P(X_{(1)} \leq 6)-P(X_{(1)} \leq 2)$
+
+$=[1-(1-\frac{6}{10})^5]-[1-(1-\frac{2}{10})^5]$
+
+$=(1-\frac{2}{10})^5-(1-\frac{6}{10})^5$
+
+$=0.8^5-0.4^5$
+
+<span style="color:red"> 
+$=0.32$
+</span>
+
+A 32% probability the minimum free attempts will be between 2000 and 6000
+
+
+## <span style="color:blue"> Example: Free Throws</span> {data-background="yellow"}
+<span style="color:red"> 
+$F_{X_{(5)}}(x)$</span>=$P(X_{(5)} \leq x )$
+
+$=F^5(x)$
+
+<span style="color:red"> 
+$=(\frac{x}{10})^5$
+</span>
+
+<span style="color:red"> 
+$f_{X_{(5)}}(x)$</span>$=5(\frac{x}{10})^4\frac{1}{10}$
+
+<span style="color:red"> 
+$=\frac{x^4}{2000^4}$
+</span>
+
+<span style="color:red"> 
+$E(X_5)=$</span>$\int_0^{10}\frac{1}{2*10^4}x^4dx$
+
+
+<span style="color:red"> 
+$=8.33$</span>
+
+The expected max number of free throws attempts is 8330.
+
+##<span style="color:blue">  Referencess</span> {data-background="yellow"}
+- Applications of Order Statistics in Health Data by Bernard G. Greenberg and Ahmed E. Sarhan
+- Computational Order Statistics by Colin Rose and Murray D. Smith
+- Order Statistics by H. A. Davis 
+
